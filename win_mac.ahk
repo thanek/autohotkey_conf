@@ -11,10 +11,36 @@
 !s::Send "^s"
 !f::Send "^f"
 !l::Send "^l"
+!r::Send "^r"
+!o::Send "^o"
+!n::Send "^n"
+!/::Send "^/"
 
-; CMD + strzałki → słowa
-!Left::Send "^{Left}"
-!Right::Send "^{Right}"
+; CMD + H → minimalizuj okno
+!h::WinMinimize "A"
+!m::WinMinimize "A"
+
+; CMD + SHIFT + V → wklej bez formatowania
++!v::Send "^+v"
+
+
+; CMD + Backspace → usuń całą linię
+!Backspace::Send "{Home}+{End}{Del}"
+
+; CMD + SHIFT + ↑ / ↓ → zaznacz do początku / końca
++!Up::Send "^+{Home}"
++!Down::Send "^+{End}"
+
+; CMD + ↑ / ↓ → początek / koniec dokumentu
+!Up::Send "^{Home}"
+!Down::Send "^{End}"
+
+; CMD + SHIFT + Backspace → usuń poprzednie słowo
++!Backspace::Send "^+{Left}{Del}"
+
+; CMD + Enter → Enter
+!Enter::Send "{Enter}"
+
 
 ; CMD + W → zamknij kartę
 !w::Send "^w"
@@ -28,22 +54,98 @@
 ; CMD + spacja → Search
 !Space::Send "#s"
 
-; CMD + , → Ustawienia
-!,::Run "ms-settings:"
+; CMD + , → Preferencje aplikacji (jak na macOS)
+!,::Send "^!s"
 
 
+; CMD + strzałki → słowa
+!Left::Send "^{Left}"
+!Right::Send "^{Right}"
 
-; PRZEŁĄCZNIK TRYBU DESKTOP <-> TV
-; displaySwitch := A_WinDir "\System32\DisplaySwitch.exe"
+; SHIFT + CMD + strzałki → zaznaczanie całych słów (jak na Macu)
++!Left::Send "^+{Left}"
++!Right::Send "^+{Right}"
 
-; ^!t:: {
-;     Run(displaySwitch " /external")
-;     Sleep 800
-;     Run('"C:\Program Files (x86)\Steam\steam.exe" -bigpicture')
-;     Run('c:\tools\nircmdc.exe setdefaultsounddevice "SAMSUNG"')
-; }
 
-; ^!d:: {
-;     Run(displaySwitch " /internal")
-;     Run('c:\tools\nircmdc.exe setdefaultsounddevice "Głośniki"')
-; }
+; =========================
+; MC-style w Total Commander
+; =========================
+global escPressed := false
+
+; Reaguj tylko w Total Commanderze
+#HotIf WinActive("ahk_class TTOTAL_CMD")
+
+Esc::{
+    global escPressed
+    escPressed := true
+    Send "{Esc}"
+    SetTimer () => escPressed := false, -600
+}
+
+3::{
+	global escPressed
+    if escPressed {
+        escPressed := false
+        Send "{F3}" 
+    } else {
+        Send "3"
+    }
+}
+
+4::{
+	global escPressed
+    if escPressed {
+        escPressed := false
+        Send "{F4}" 
+    } else {
+        Send "4"
+    }
+}
+
+5::{
+	global escPressed
+    if escPressed {
+        escPressed := false
+        Send "{F5}" ; Kopiuj w TC
+    } else {
+        Send "5"
+    }
+}
+
+; Esc + 6 = Move (F6)
+6::{
+	global escPressed
+    if escPressed {
+        escPressed := false
+        Send "{F6}"
+    } else {
+        Send "6"
+    }
+}
+
+7::{
+	global escPressed
+    if escPressed {
+        escPressed := false
+        Send "{F7}"
+    } else {
+        Send "7"
+    }
+}
+
+; Esc + 8 = Delete (F8)
+8::{
+	global escPressed
+    if escPressed {
+        escPressed := false
+        Send "{F8}"
+    } else {
+        Send "8"
+    }
+}
+
+#HotIf
+; =========================
+; MC-style w Total Commander
+; =========================
+
