@@ -1,20 +1,21 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
+#UseHook true
 
-; CMD (Alt) → CTRL (edycja)
-!a::Send "^a"
-!c::Send "^c"
-!v::Send "^v"
-!x::Send "^x"
-!z::Send "^z"
-!y::Send "^y"
-!s::Send "^s"
-!f::Send "^f"
-!l::Send "^l"
-!r::Send "^r"
-!o::Send "^o"
-!n::Send "^n"
-!/::Send "^/"
+; CMD (Lewy Alt) → CTRL (edycja)
+<!a::Send "^a"
+<!c::Send "^c"
+<!v::Send "^v"
+<!x::Send "^x"
+<!z::Send "^z"
+<!y::Send "^y"
+<!s::Send "^s"
+<!f::Send "^f"
+<!l::Send "^l"
+<!r::Send "^r"
+<!o::Send "^o"
+<!n::Send "^n"
+<!/::Send "^/"
 
 ; CMD + H → minimalizuj okno
 !h::WinMinimize "A"
@@ -52,7 +53,8 @@
 !`::Send "^!{Tab}"
 
 ; CMD + spacja → Search
-!Space::Send "#s"
+~<!Space::Send "#{Space}"
+<#Space::Send "{LWin}"
 
 ; CMD + , → Preferencje aplikacji (jak na macOS)
 !,::Send "^!s"
