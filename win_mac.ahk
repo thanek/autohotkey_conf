@@ -18,51 +18,51 @@
 <!/::Send "^/"
 
 ; CMD + H → minimalizuj okno
-!h::WinMinimize "A"
-!m::WinMinimize "A"
+<!h::WinMinimize "A"
+<!m::WinMinimize "A"
 
 ; CMD + SHIFT + V → wklej bez formatowania
 +!v::Send "^+v"
 
 
 ; CMD + Backspace → usuń całą linię
-!Backspace::Send "{Home}+{End}{Del}"
+<!Backspace::Send "{Home}+{End}{Del}"
 
 ; CMD + SHIFT + ↑ / ↓ → zaznacz do początku / końca
 +!Up::Send "^+{Home}"
 +!Down::Send "^+{End}"
 
 ; CMD + ↑ / ↓ → początek / koniec dokumentu
-!Up::Send "^{Home}"
-!Down::Send "^{End}"
+<!Up::Send "^{Home}"
+<!Down::Send "^{End}"
 
 ; CMD + SHIFT + Backspace → usuń poprzednie słowo
 +!Backspace::Send "^+{Left}{Del}"
 
 ; CMD + Enter → Enter
-!Enter::Send "{Enter}"
+<!Enter::Send "{Enter}"
 
 
 ; CMD + W → zamknij kartę
-!w::Send "^w"
+<!w::Send "^w"
 
 ; CMD + Q → zamknij aplikację
-!q::Send "!{F4}"
+<!q::Send "!{F4}"
 
 ; CMD + ` → okna tej samej aplikacji
-!`::Send "^!{Tab}"
+<!`::Send "^!{Tab}"
 
 ; CMD + spacja → Search
 ~<!Space::Send "#{Space}"
 <#Space::Send "{LWin}"
 
 ; CMD + , → Preferencje aplikacji (jak na macOS)
-!,::Send "^!s"
+<!,::Send "^!s"
 
 
 ; CMD + strzałki → słowa
-!Left::Send "^{Left}"
-!Right::Send "^{Right}"
+<!Left::Send "^{Left}"
+<!Right::Send "^{Right}"
 
 ; SHIFT + CMD + strzałki → zaznaczanie całych słów (jak na Macu)
 +!Left::Send "^+{Left}"
