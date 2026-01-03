@@ -13,7 +13,6 @@ dodajemy dwa mapowania:
 2. powertoys keyboard manager:
 dodajemy mapowanie skrótu:
 * Alt(Left) + Shift(Left) + 4 	=> Win(Left) + Shift(Left) + S   # odpala screenshot
-* opcjonalnie (gdyby polskie znaki nie łapały od razu): Ctrl(Left) + Alt(Right) + A => tekst: "ą"  # czyli tak naprawdę naciskamy prawy ALT i A, powtarzamy dla każdego polskiego znaku diakrytycznego
 
 3. Kompilujemy plik mac_win.ahk do exe i umieszczamy w autostarcie
 

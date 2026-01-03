@@ -2,8 +2,7 @@
 #SingleInstance Force
 #UseHook true
 
-
-; CMD (Lewy Alt) → CTRL (edycja)
+; Lewy CMD (Lewy Alt) → CTRL (edycja)
 <!a::Send "^a"
 <!b::Send "^b"
 <!c::Send "^c"
@@ -20,74 +19,74 @@
 <!n::Send "^n"
 <!/::Send "^/"
 
-; CMD + H → minimalizuj okno
+
+; Lewy CMD + H → minimalizuj okno
 <!h::WinMinimize "A"
 <!m::WinMinimize "A"
 
-; CMD + SHIFT + V → wklej bez formatowania
-+!v::Send "^+v"
+; Lewy CMD + Lewy SHIFT + V → wklej bez formatowania
++<!v::Send "^+v"
 
-
-; CMD + Backspace → usuń całą linię
+; Lewy CMD + Backspace → usuń całą linię
 <!Backspace::Send "{Home}+{End}{Del}"
 
-; CMD + SHIFT + ↑ / ↓ → zaznacz do początku / końca
-+!Up::Send "^+{Home}"
-+!Down::Send "^+{End}"
+; Lewy CMD + Lewy SHIFT + ↑ / ↓ → zaznacz do początku / końca
++<!Up::Send "^+{Home}"
++<!Down::Send "^+{End}"
 
-; CMD + ↑ / ↓ → początek / koniec dokumentu
+; Lewy CMD + ↑ / ↓ → początek / koniec dokumentu
 <!Up::Send "^{Home}"
 <!Down::Send "^{End}"
 
-; CMD + SHIFT + Backspace → usuń poprzednie słowo
-+!Backspace::Send "^+{Left}{Del}"
+; Lewy CMD + SHIFT + Backspace → usuń poprzednie słowo
++<!Backspace::Send "^+{Left}{Del}"
 
-; CMD + Enter → Enter
+; Lewy CMD + Enter → Enter
 <!Enter::Send "{Enter}"
 
 
-; CMD + W → zamknij kartę
+; Lewy CMD + W → zamknij kartę
 <!w::Send "^w"
 
-; CMD + Q → zamknij aplikację
+; Lewy CMD + Q → zamknij aplikację
 <!q::Send "!{F4}"
 
-; CMD + ` → okna tej samej aplikacji
+; Lewy CMD + ` → okna tej samej aplikacji
 <!`::Send "^!{Tab}"
 
-; CMD + spacja → Search
+; Lewy CMD + spacja → Search
 ~<!Space::Send "#{Space}"
 <#Space::Send "{LWin}"
 
-; CMD + , → Preferencje aplikacji (jak na macOS)
+; Lewy CMD + , → Preferencje aplikacji (jak na macOS)
 <!,::Send "^!s"
 
 
-; CMD + ← / → → początek / koniec wiersza
+; Lewy CMD + ← / → → początek / koniec wiersza
 <!Left::Send "{Home}"
 <!Right::Send "{End}"
 
-; Shift + CMD + ← / → → zaznacz do początku / końca wiersza
+; Lewy CMD + Lewy Shift + ← / → → zaznacz do początku / końca wiersza
 <+<!Left::Send "+{Home}"
 <+<!Right::Send "+{End}"
 
-; Lewy Win + strzałki = Ctrl + strzałki
+; Lewy Alt + strzałki = Ctrl + strzałki
 <#Left::Send "^{Left}"
 <#Right::Send "^{Right}"
 
-; Lewy Win + Shift + strzałki = Ctrl + Shift + strzałki (zaznaczanie słów)
+; Lewy Alt + Lewy Shift + strzałki = Ctrl + Shift + strzałki (zaznaczanie słów)
 <#+Left::Send "^+{Left}"
 <#+Right::Send "^+{Right}"
 
 
-; SHIFT + CMD + 4 - screenshot
+; Lewy CMD + Lewy Shift + 4 - screenshot
 ;
 ; to robimy w PowerToys -> Menadżer klawiatury -> remapuj skrót -> (Lewy Alt + Lewy Shift + 4) => (Lewy Win + Lewy Shift + S)
 
-; CMD + Shift + 3 → cały ekran
+; Lewy CMD + Lewy Shift + 3 → cały ekran
 +<!3::SendInput "{PrintScreen}"
 
-; CMD + Shift + 5 → panel narzędzi (Win 11)
+; Lewy CMD + Lewy Shift + 5 → panel narzędzi (Win 11)
 +<!5::Run("SnippingTool.exe /clip")
 
 
