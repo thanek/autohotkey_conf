@@ -2,6 +2,13 @@
 #SingleInstance Force
 #UseHook true
 
+; wymuszenie RAlt+L po starcie
+; Jednorazowe "odświeżenie" RAlt+L po starcie systemu
+SetTimer(WakeL, -1000)  ; uruchom funkcję po 1 sekundzie od startu
+WakeL() {
+    Send("{RAlt down}{L down}{L up}{RAlt up}")
+}
+
 ; Lewy CMD (Lewy Alt) → CTRL (edycja)
 <!a::Send "^a"
 <!b::Send "^b"
@@ -18,7 +25,6 @@
 <!p::Send "^p"
 <!n::Send "^n"
 <!/::Send "^/"
-
 
 ; Lewy CMD + H → minimalizuj okno
 <!h::WinMinimize "A"
