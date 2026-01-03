@@ -1,9 +1,11 @@
-#Requires AutoHotkey v2.0
+﻿#Requires AutoHotkey v2.0
 #SingleInstance Force
 #UseHook true
 
+
 ; CMD (Lewy Alt) → CTRL (edycja)
 <!a::Send "^a"
+<!b::Send "^b"
 <!c::Send "^c"
 <!v::Send "^v"
 <!x::Send "^x"
@@ -14,6 +16,7 @@
 <!l::Send "^l"
 <!r::Send "^r"
 <!o::Send "^o"
+<!p::Send "^p"
 <!n::Send "^n"
 <!/::Send "^/"
 
@@ -60,13 +63,32 @@
 <!,::Send "^!s"
 
 
-; CMD + strzałki → słowa
-<!Left::Send "^{Left}"
-<!Right::Send "^{Right}"
+; CMD + ← / → → początek / koniec wiersza
+<!Left::Send "{Home}"
+<!Right::Send "{End}"
 
-; SHIFT + CMD + strzałki → zaznaczanie całych słów (jak na Macu)
-+!Left::Send "^+{Left}"
-+!Right::Send "^+{Right}"
+; Shift + CMD + ← / → → zaznacz do początku / końca wiersza
+<+<!Left::Send "+{Home}"
+<+<!Right::Send "+{End}"
+
+; Lewy Win + strzałki = Ctrl + strzałki
+<#Left::Send "^{Left}"
+<#Right::Send "^{Right}"
+
+; Lewy Win + Shift + strzałki = Ctrl + Shift + strzałki (zaznaczanie słów)
+<#+Left::Send "^+{Left}"
+<#+Right::Send "^+{Right}"
+
+
+; SHIFT + CMD + 4 - screenshot
+;
+; to robimy w PowerToys -> Menadżer klawiatury -> remapuj skrót -> (Lewy Alt + Lewy Shift + 4) => (Lewy Win + Lewy Shift + S)
+
+; CMD + Shift + 3 → cały ekran
++<!3::SendInput "{PrintScreen}"
+
+; CMD + Shift + 5 → panel narzędzi (Win 11)
++<!5::Run("SnippingTool.exe /clip")
 
 
 ; =========================
@@ -88,7 +110,7 @@ Esc::{
 	global escPressed
     if escPressed {
         escPressed := false
-        Send "{F3}" 
+        Send "{F3}"
     } else {
         Send "3"
     }
@@ -98,7 +120,7 @@ Esc::{
 	global escPressed
     if escPressed {
         escPressed := false
-        Send "{F4}" 
+        Send "{F4}"
     } else {
         Send "4"
     }
